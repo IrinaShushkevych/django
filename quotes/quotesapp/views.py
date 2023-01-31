@@ -13,18 +13,18 @@ def get_top_tags():
 def main(request, page=1):
     cnt_quotes = 3
     quotes_list = []
-    quotes = Quotes.objects.all()
+    len_q = Quotes.objects.count()
     cnt_pages = 0
-    if len(quotes) % cnt_quotes == 0:
-        cnt_pages = len(quotes) // cnt_quotes
+    if len_q % cnt_quotes == 0:
+        cnt_pages = len_q // cnt_quotes
     else:
-        cnt_pages = len(quotes) // cnt_quotes + 1
+        cnt_pages = len_q // cnt_quotes + 1
     previos = page - 1
     next = page + 1 if page < cnt_pages else 0
     start_q = (page - 1) * cnt_quotes
     end_q = (page - 1) * cnt_quotes + cnt_quotes
 
-    for el in quotes[start_q:end_q]:
+    for el in Quotes.objects.all()[start_q:end_q]:
         tags = el.tags.all()
         quotes_list.append({
             'id': el.id,
@@ -47,18 +47,18 @@ def tag(request, tag_id, page=1):
     tag = get_object_or_404(Tags, pk=tag_id)
     cnt_quotes = 3
     quotes_list = []
-    quotes = Quotes.objects.filter(tags=tag_id)
+    len_t = Quotes.objects.filter(tags=tag_id).count()
     cnt_pages = 0
-    if len(quotes) % cnt_quotes == 0:
-        cnt_pages = len(quotes) // cnt_quotes
+    if len_t % cnt_quotes == 0:
+        cnt_pages = len_t // cnt_quotes
     else:
-        cnt_pages = len(quotes) // cnt_quotes + 1
+        cnt_pages = len_t // cnt_quotes + 1
     previos = page - 1
     next = page + 1 if page < cnt_pages else 0
     start_q = (page - 1) * cnt_quotes
     end_q = (page - 1) * cnt_quotes + cnt_quotes
 
-    for el in quotes[start_q:end_q]:
+    for el in Quotes.objects.filter(tags=tag_id)[start_q:end_q]:
         tags = el.tags.all()
         quotes_list.append({
             'id': el.id,
@@ -126,37 +126,36 @@ def addquote(request):
 
 def get_authors(request, page=1):
     cnt_authors = 12
-    authors = Authors.objects.all().order_by('fullname')
+    len_a = Authors.objects.count()
     cnt_pages = 0
-    if len(authors) % cnt_authors == 0:
-        cnt_pages = len(authors) // cnt_authors
+    if len_a % cnt_authors == 0:
+        cnt_pages = len_a // cnt_authors
     else:
-        cnt_pages = len(authors) // cnt_authors + 1
+        cnt_pages = len_a // cnt_authors + 1
     previos = page - 1
     next = page + 1 if page < cnt_pages else 0
     start_a = (page - 1) * cnt_authors
     end_a = (page - 1) * cnt_authors + cnt_authors
 
     return render(request, 'quotesapp/get_authors.html',
-                  {'authors': authors[start_a:end_a], 'previous': previos, 'next': next})
+                  {'authors': Authors.objects.order_by('fullname')[start_a:end_a], 'previous': previos, 'next': next})
 
 
 def get_tags(request, page=1):
     cnt_tags = 12
-    tags = Tags.objects.all().order_by('name')
-    # len_tags = Tags.objects.count()
+    len_tags = Tags.objects.count()
     cnt_pages = 0
-    if len(tags) % cnt_tags == 0:
-        cnt_pages = len(tags) // cnt_tags
+    if len_tags % cnt_tags == 0:
+        cnt_pages = len_tags // cnt_tags
     else:
-        cnt_pages = len(tags) // cnt_tags + 1
+        cnt_pages = len_tags // cnt_tags + 1
     previos = page - 1
     next = page + 1 if page < cnt_pages else 0
     start_tag = (page - 1) * cnt_tags
     end_tag = (page - 1) * cnt_tags + cnt_tags
 
     return render(request, 'quotesapp/get_tags.html',
-                  {'tags': tags[start_tag:end_tag], 'previous': previos, 'next': next})
+                  {'tags': Tags.objects.order_by('name')[start_tag:end_tag], 'previous': previos, 'next': next})
 
 
 @login_required
