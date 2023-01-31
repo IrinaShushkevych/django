@@ -19,4 +19,14 @@
     </li>
     {% endfor %}
 </ul>
+
+<div class="list-pagination">
+    {% if previous > 0 %}
+    <a href="{% url 'quotesapp:authorspage' previous %}" class="button-add prev">Previous</a>
+    {% endif %}
+    {% if next > 0 %}
+    <a href="{% url 'quotesapp:authorspage' next %}" class="button-add next">Next</a>
+    {% endif %}
+</div>
+
 {% endblock %}

@@ -178,3 +178,41 @@ form{
 .next{
     margin-left: auto;
 }
+
+.global{
+    display: flex;
+}
+
+.side{
+    width: 20%;
+    padding: 20px 0 20px 20px;
+}
+
+.main{
+    padding: 0 20px 0 0;
+    width: 80%;
+}
+
+.top-tag-title{
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.top-tag-item{
+    text-align: end;
+}
+
+.top-tag-item:not(:last-child){
+    margin-bottom: 28px;
+}
+
+.top-tag{
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.button-add.add-quote{
+    margin: 0 auto;
+}
