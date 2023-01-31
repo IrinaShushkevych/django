@@ -1,0 +1,180 @@
+body{
+    margin: 0;
+}
+
+html{
+    background-color: #dff2fb;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header{
+    background-color: blue;
+}
+
+.container{
+    padding: 10px 30px;
+}
+.header > .container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 46px;
+    color: yellow;
+    font-weight: 500;
+}
+
+.login{
+    text-decoration: none;
+    color: white;
+    padding: 6px 16px;
+}
+
+.quote{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.link-quote{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.text{
+    padding: 20px 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.subtext{
+    padding: 0 0 10px 0;
+}
+
+.title{
+    font-size: 30px;
+    color: blue;
+    margin: 20px 0;
+}
+
+.author-data{
+    padding-bottom: 20px;
+    line-height: 1.8;
+}
+
+.description{
+    padding-top: 20px
+}
+
+.form-field{
+    margin-bottom: 20px;
+}
+
+.form-button-block{
+    justify-content: center;
+    display: flex;
+}
+
+.form-button{
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.form-button:not(:last-child){
+    margin-right: 50px;
+}
+
+.form-button:hover, .form-button:focus{
+    color: blue;
+    font-weight: 800;
+}
+
+.form-label{
+    display: flex;
+}
+
+.form-text{
+    width: 10%;
+    width: 120px;
+}
+
+input, textarea, select, option{
+    flex-grow: 1;
+}
+
+form{
+    padding-top: 20px;
+}
+
+.item{
+    position: relative;
+    padding: 10px 0;
+}
+
+.button-add{
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: black;
+    color: black;
+}
+
+.button-add:hover, .button-add:focus{
+    color: blue;
+    border-color: blue;
+}
+
+.nav-add{
+    display: flex;
+    justify-content: center;
+}
+
+.button-delete{
+    position: absolute;
+    padding: 4px 10px;
+    top: 0;
+    right: 0;
+    color: black;
+}
+
+.button-delete:hover, .button-delete:focus{
+    color: blue;
+}
+
+.list-pagination{
+    display: flex;
+}
+
+.next{
+    margin-left: auto;
+}
