@@ -6,7 +6,7 @@
 <div>
     {% for message in messages %}
     <div {% if message.tag %} class="alert-{{message.tags}}" {% endif %}>{{message}}</div>
-    {% endfor%}
+    {% endfor %}
 </div>
 {% endif %}
 
@@ -31,6 +31,9 @@
     <div class="form-button-block">
         <button type="reset" class="form-button">Reset</button>
         <button type="submit" class="form-button">Login</button>
+    </div>
+    <div class="form-field">
+        <a href="{% url 'users:password_reset' %}" class="text-center"><i>Forgot Password?</i></a>
     </div>
 </form>
 
